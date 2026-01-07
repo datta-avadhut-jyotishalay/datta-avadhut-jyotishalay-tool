@@ -1,0 +1,29 @@
+name: Push to Client Fork
+
+on:
+  push:
+    branches:
+      - main # Triggers whenever you push to your main branch
+
+jobs:
+  push-to-fork:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Main Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetches all history for all branches and tags
+
+      - name: Push to Forked Repo
+        run: |
+          # 1. Setup git config
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+
+          # 2. Add the client's fork as a remote
+          # REPLACE 'client-username' and 'repo-name' with the actual values
+          git remote add fork https://${{ secrets.CLIENT_FORK_PAT }}@github.com/client-username/repo-name.git
+
+          # 3. Push the main branch to the fork
+          # We use --force if you want the fork to be an exact mirror of your repo
+          git push fork main --force
