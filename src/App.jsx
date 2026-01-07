@@ -124,7 +124,6 @@ const textToImage = (text, fontSize, fontName) => {
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [auth, setAuth] = useState({ user: "", pass: "" });
-  const [debugMode, setDebugMode] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     day: "१",
@@ -490,17 +489,6 @@ const App = () => {
               setFormData({ ...formData, comments: e.target.value })
             }
           />
-        </div>
-
-        <div style={{ marginTop: "10px" }}>
-          <label style={{ fontSize: "12px", color: "red" }}>
-            <input
-              type="checkbox"
-              checked={debugMode}
-              onChange={(e) => setDebugMode(e.target.checked)}
-            />{" "}
-            Debug Mode (Use to find exact text positions)
-          </label>
         </div>
 
         <div style={{ marginTop: "20px", display: "flex", gap: "20px" }}>
