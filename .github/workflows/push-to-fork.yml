@@ -22,7 +22,7 @@ jobs:
 
           # 2. Add the client's fork as a remote
           # REPLACE 'client-username' and 'repo-name' with the actual values
-          git remote add fork https://${{ secrets.CLIENT_FORK_PAT }}@github.com/datta-avadhut-jyostishalay/datta-avadhut-jyostishalay-tool.git
+          git remote add fork https://${{ secrets.CLIENT_FORK_PAT }}@github.com/datta-avadhut-jyotishalay/datta-avadhut-jyotishalay-tool.git
 
           # 3. Push the main branch to the fork
           # We use --force if you want the fork to be an exact mirror of your repo
